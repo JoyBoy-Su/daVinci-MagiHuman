@@ -22,16 +22,16 @@
 
 </div>
 
-## Highlights
+## ✨ Highlights
 
-- **Single-Stream Transformer** — A unified 15B-parameter, 40-layer Transformer that jointly processes text, video, and audio via self-attention only. No cross-attention, no multi-stream complexity.
-- **Exceptional Human-Centric Quality** — Expressive facial performance, natural speech-expression coordination, realistic body motion, and accurate audio-video synchronization.
-- **Multilingual** — Supports Chinese (Mandarin & Cantonese), English, Japanese, Korean, German, and French.
-- **Blazing Fast Inference** — Generates a 5-second 256p video in **2 seconds** and a 5-second 1080p video in **38 seconds** on a single H100 GPU.
-- **State-of-the-Art Results** — Achieves **80.0%** win rate vs Ovi 1.1 and **60.9%** vs LTX 2.3 in pairwise human evaluation over 2,000 comparisons.
-- **Fully Open Source** — We release the complete model stack: base model, distilled model, super-resolution model, and inference code.
+- 🧠 **Single-Stream Transformer** — A unified 15B-parameter, 40-layer Transformer that jointly processes text, video, and audio via self-attention only. No cross-attention, no multi-stream complexity.
+- 🎭 **Exceptional Human-Centric Quality** — Expressive facial performance, natural speech-expression coordination, realistic body motion, and accurate audio-video synchronization.
+- 🌍 **Multilingual** — Supports Chinese (Mandarin & Cantonese), English, Japanese, Korean, German, and French.
+- ⚡ **Blazing Fast Inference** — Generates a 5-second 256p video in **2 seconds** and a 5-second 1080p video in **38 seconds** on a single H100 GPU.
+- 🏆 **State-of-the-Art Results** — Achieves **80.0%** win rate vs Ovi 1.1 and **60.9%** vs LTX 2.3 in pairwise human evaluation over 2,000 comparisons.
+- 📦 **Fully Open Source** — We release the complete model stack: base model, distilled model, super-resolution model, and inference code.
 
-## Demo
+## 🎬 Demo
 
 https://github.com/user-attachments/assets/7050a191-38ef-4e36-8b48-0084ccc694f1
 
@@ -51,7 +51,7 @@ https://github.com/user-attachments/assets/c6cc056f-56ca-4285-80f3-bb6052228d23
 </tr>
 </table>
 
-## Architecture
+## 🏗️ Architecture
 
 <div align="center">
 <img src="assets/architecture.png" width="90%">
@@ -63,12 +63,12 @@ Key design choices:
 
 | Component | Description |
 |---|---|
-| **Sandwich Architecture** | First and last 4 layers use modality-specific projections; middle 32 layers share parameters across modalities |
-| **Timestep-Free Denoising** | No explicit timestep embeddings — the model infers the denoising state directly from input latents |
-| **Per-Head Gating** | Learned scalar gates with sigmoid activation on each attention head for training stability |
-| **Unified Conditioning** | Denoising and reference signals handled through a minimal unified interface — no dedicated conditioning branches |
+| 🥪 **Sandwich Architecture** | First and last 4 layers use modality-specific projections; middle 32 layers share parameters across modalities |
+| 🕐 **Timestep-Free Denoising** | No explicit timestep embeddings — the model infers the denoising state directly from input latents |
+| 🔀 **Per-Head Gating** | Learned scalar gates with sigmoid activation on each attention head for training stability |
+| 🔗 **Unified Conditioning** | Denoising and reference signals handled through a minimal unified interface — no dedicated conditioning branches |
 
-## Performance
+## 📊 Performance
 
 ### Quantitative Quality Benchmark
 
@@ -93,14 +93,14 @@ Key design choices:
 | 540p | 1.6 | 5.1 | 1.3 | **8.0** |
 | 1080p | 1.6 | 31.0 | 5.8 | **38.4** |
 
-## Efficient Inference Techniques
+## 🚀 Efficient Inference Techniques
 
-- **Latent-Space Super-Resolution** — Two-stage pipeline: generate at low resolution, then refine in latent space (not pixel space), avoiding an extra VAE decode-encode round trip.
-- **Turbo VAE Decoder** — A lightweight re-trained decoder that substantially reduces decoding overhead.
-- **Full-Graph Compilation** — [MagiCompiler](https://github.com/SandAI-org/MagiCompiler) fuses operators across Transformer layers for ~1.2x speedup.
-- **Distillation** — DMD-2 distillation enables generation with only 8 denoising steps (no CFG), without sacrificing quality.
+- ⚡ **Latent-Space Super-Resolution** — Two-stage pipeline: generate at low resolution, then refine in latent space (not pixel space), avoiding an extra VAE decode-encode round trip.
+- 🔄 **Turbo VAE Decoder** — A lightweight re-trained decoder that substantially reduces decoding overhead.
+- 🔧 **Full-Graph Compilation** — [MagiCompiler](https://github.com/SandAI-org/MagiCompiler) fuses operators across Transformer layers for ~1.2x speedup.
+- 💨 **Distillation** — DMD-2 distillation enables generation with only 8 denoising steps (no CFG), without sacrificing quality.
 
-## Getting Started
+## 📦 Getting Started
 
 ### Option 1: Docker (Recommended)
 
@@ -154,7 +154,7 @@ pip install -r requirements.txt
 
 Download the complete model stack from [HuggingFace](https://huggingface.co/GAIR/daVinci-MagiHuman) and update the paths in the config files under `example/`.
 
-## Usage
+## 🎯 Usage
 
 Before running, update the checkpoint paths in the config files (`example/*/config.json`) to point to your local model directory.
 
@@ -178,15 +178,15 @@ bash example/sr_540p/run.sh
 bash example/sr_1080p/run.sh
 ```
 
-## Acknowledgements
+## 🙏 Acknowledgements
 
 We thank the open-source community, and in particular [Wan2.2](https://github.com/Wan-Video/Wan2.2) and [Turbo-VAED](https://github.com/hustvl/Turbo-VAED), for their valuable contributions.
 
-## License
+## 📄 License
 
 This project is released under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
 
-## Citation
+## 📖 Citation
 
 ```bibtex
 @misc{davinci-magihuman-2026,
