@@ -38,6 +38,7 @@ output
 !example/**/*.json
 !assets/*.png
 !assets/*.jpg
+!assets/*.pdf
 
 proj*
 .venv
