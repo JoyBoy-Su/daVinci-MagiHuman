@@ -154,7 +154,7 @@ cd ..
 git clone https://github.com/GAIR-NLP/daVinci-MagiHuman
 cd daVinci-MagiHuman
 pip install -r requirements.txt
-pip install --no-deps -r /app/requirements-nodeps.txt
+pip install --no-deps -r requirements-nodeps.txt
 
 # Optional (only for sr-1080p): Install MagiAttention
 git clone --recursive https://github.com/SandAI-org/MagiAttention.git
