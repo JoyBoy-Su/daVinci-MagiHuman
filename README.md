@@ -115,6 +115,17 @@ docker run -it --gpus all --network host --ipc host \
   sandai/magi-human:latest \
   bash
 
+# Install MagiCompiler
+git clone https://github.com/SandAI-org/MagiCompiler.git
+cd MagiCompiler
+pip install -r requirements.txt
+pip install .
+cd ..
+
+# Clone daVinci-MagiHuman
+git clone https://github.com/GAIR-NLP/daVinci-MagiHuman
+cd daVinci-MagiHuman
+
 ```
 
 If you prefer manual setup, follow Option 2 (Conda) below.
